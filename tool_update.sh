@@ -7,7 +7,7 @@ file_name="Xray-linux-64"
 	wget --quiet "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip.dgst" -O "/tmp/tool_update/${file_name}.zip.dgst"
 	new_md5sum=$( cat "/tmp/tool_update/${file_name}.zip.dgst" | grep '^MD5=' | awk '{print $2}' )
 	
-	wget "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip" -O "/tmp/tool_update/${file_name}.zip"
+	wget --quiet "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip" -O "/tmp/tool_update/${file_name}.zip"
 	new_downloaded_md5sum=$( md5sum "/tmp/tool_update/${file_name}.zip" | awk '{print $1}' )
 	if [ "$new_md5sum" = "$new_downloaded_md5sum" ]; then
 		unzip -o "/tmp/tool_update/${file_name}.zip" -d /tmp/tool_update
@@ -23,7 +23,7 @@ file_name="Xray-linux-arm64-v8a"
 	wget --quiet "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip.dgst" -O "/tmp/tool_update/${file_name}.zip.dgst"
 	new_md5sum=$( cat "/tmp/tool_update/${file_name}.zip.dgst" | grep '^MD5=' | awk '{print $2}' )
 	
-	wget "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip" -O "/tmp/tool_update/${file_name}.zip"
+	wget --quiet "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip" -O "/tmp/tool_update/${file_name}.zip"
 	new_downloaded_md5sum=$( md5sum "/tmp/tool_update/${file_name}.zip" | awk '{print $1}' )
 	if [ "$new_md5sum" = "$new_downloaded_md5sum" ]; then
 		unzip -o "/tmp/tool_update/${file_name}.zip" -d /tmp/tool_update
@@ -43,7 +43,7 @@ file_name="hysteria-linux-amd64"
 
 	new_sha256sum=$( echo "$hysteria_sha256" | grep "$file_name$" | awk '{print $1}' )
 
-	wget "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
+	wget --quiet "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
 	new_downloaded_sha256sum=$( sha256sum "/tmp/tool_update/${file_name}" | awk '{print $1}' )
 	if [ "$new_sha256sum" = "$new_downloaded_sha256sum" ]; then
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
@@ -58,7 +58,7 @@ file_name="hysteria-linux-amd64-avx"
 
 	new_sha256sum=$( echo "$hysteria_sha256" | grep "$file_name$" | awk '{print $1}' )
 
-	wget "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
+	wget --quiet "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
 	new_downloaded_sha256sum=$( sha256sum "/tmp/tool_update/${file_name}" | awk '{print $1}' )
 	if [ "$new_sha256sum" = "$new_downloaded_sha256sum" ]; then
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
@@ -72,7 +72,7 @@ file_name="hysteria-linux-arm64"
 
 	new_sha256sum=$( echo "$hysteria_sha256" | grep "$file_name$" | awk '{print $1}' )
 
-	wget "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
+	wget --quiet "https://github.com/apernet/hysteria/releases/latest/download/${file_name}" -O "/tmp/tool_update/${file_name}"
 	new_downloaded_sha256sum=$( sha256sum "/tmp/tool_update/${file_name}" | awk '{print $1}' )
 	if [ "$new_sha256sum" = "$new_downloaded_sha256sum" ]; then
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
@@ -92,7 +92,7 @@ file_name="linux-amd64-webdav"
 
 	new_sha256sum=$( echo "$webdav_sha256" | grep "${file_name}.tar.gz$" | awk '{print $1}' )
 
-	wget "https://github.com/hacdias/webdav/releases/latest/download/${file_name}.tar.gz" -O "/tmp/tool_update/${file_name}.tar.gz"
+	wget --quiet "https://github.com/hacdias/webdav/releases/latest/download/${file_name}.tar.gz" -O "/tmp/tool_update/${file_name}.tar.gz"
 	new_downloaded_sha256sum=$( sha256sum "/tmp/tool_update/${file_name}.tar.gz" | awk '{print $1}' )
 	if [ "$new_sha256sum" = "$new_downloaded_sha256sum" ]; then
 		tar -zxvf "/tmp/tool_update/${file_name}.tar.gz" -C /tmp/tool_update/
@@ -106,7 +106,7 @@ file_name="linux-arm64-webdav"
 
 	new_sha256sum=$( echo "$webdav_sha256" | grep "${file_name}.tar.gz$" | awk '{print $1}' )
 
-	wget "https://github.com/hacdias/webdav/releases/latest/download/${file_name}.tar.gz" -O "/tmp/tool_update/${file_name}.tar.gz"
+	wget --quiet "https://github.com/hacdias/webdav/releases/latest/download/${file_name}.tar.gz" -O "/tmp/tool_update/${file_name}.tar.gz"
 	new_downloaded_sha256sum=$( sha256sum "/tmp/tool_update/${file_name}.tar.gz" | awk '{print $1}' )
 	if [ "$new_sha256sum" = "$new_downloaded_sha256sum" ]; then
 		tar -zxvf "/tmp/tool_update/${file_name}.tar.gz" -C /tmp/tool_update/
