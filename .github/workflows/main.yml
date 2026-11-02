@@ -12,10 +12,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      
       - name: Organize files
         run: |
           mkdir upload
-          sh ./tool_update.sh
+          sh tool_update.sh
 
       - name: Upload firmware to release
         uses: softprops/action-gh-release@v1
