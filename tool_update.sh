@@ -14,7 +14,6 @@ file_name="Xray-linux-64"
 		md5sum /tmp/tool_update/xray | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip /tmp/tool_update/xray
 		mv /tmp/tool_update/xray.gz "upload/${file_name}.gz"
-		echo $new_md5sum > "upload/${file_name}.zip.md5sum"
 	fi
 
 file_name="Xray-linux-arm64-v8a"
@@ -30,7 +29,6 @@ file_name="Xray-linux-arm64-v8a"
 		md5sum /tmp/tool_update/xray | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip /tmp/tool_update/xray
 		mv /tmp/tool_update/xray.gz "upload/${file_name}.gz"
-		echo $new_md5sum > "upload/${file_name}.zip.md5sum"
 	fi
 
 
@@ -49,7 +47,6 @@ file_name="hysteria-linux-amd64"
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip "/tmp/tool_update/${file_name}"
 		mv "/tmp/tool_update/${file_name}.gz" upload/
-		echo $new_sha256sum > "upload/${file_name}.sha256sum"
 	fi
 
 
@@ -64,7 +61,6 @@ file_name="hysteria-linux-amd64-avx"
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip "/tmp/tool_update/${file_name}"
 		mv "/tmp/tool_update/${file_name}.gz" upload/
-		echo $new_sha256sum > "upload/${file_name}.sha256sum"
 	fi
 
 file_name="hysteria-linux-arm64"
@@ -78,7 +74,6 @@ file_name="hysteria-linux-arm64"
 		md5sum "/tmp/tool_update/${file_name}" | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip "/tmp/tool_update/${file_name}"
 		mv "/tmp/tool_update/${file_name}.gz" upload/
-		echo $new_sha256sum > "upload/${file_name}.sha256sum"
 	fi
 
 
@@ -99,7 +94,6 @@ file_name="linux-amd64-webdav"
 		md5sum "/tmp/tool_update/webdav" | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip "/tmp/tool_update/webdav"
 		mv /tmp/tool_update/webdav.gz "upload/${file_name}.gz"
-		echo $new_sha256sum > "upload/${file_name}.sha256sum"
 	fi
 
 file_name="linux-arm64-webdav"
@@ -113,7 +107,6 @@ file_name="linux-arm64-webdav"
 		md5sum "/tmp/tool_update/webdav" | awk '{print $1}' > "upload/${file_name}.md5sum"
 		gzip "/tmp/tool_update/webdav"
 		mv /tmp/tool_update/webdav.gz "upload/${file_name}.gz"
-		echo $new_sha256sum > "upload/${file_name}.sha256sum"
 	fi
 
 rm -rf mkdir /tmp/tool_update
