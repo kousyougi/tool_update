@@ -1,0 +1,26 @@
+name: tool_update
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+          
+env:
+  TZ: Asia/Taipei
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Organize files
+        run: |
+          mkdir upload
+          sh tool_update.sh
+
+      - name: Upload firmware to release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: tool_update
+          files: upload/*
