@@ -2,7 +2,7 @@
 
 mkdir /tmp/tool_update
 
-function check_and_update_xray(){
+function check_and_update_xray {
 
 	wget --quiet "https://github.com/XTLS/Xray-core/releases/latest/download/${file_name}.zip.dgst" -O "/tmp/tool_update/${file_name}.zip.dgst"
 	new_md5sum=$( cat "/tmp/tool_update/${file_name}.zip.dgst" | grep '^MD5=' | awk '{print $2}' )
@@ -29,7 +29,7 @@ check_and_update_xray
 
 hysteria_sha256=$( curl --silent -L "https://github.com/apernet/hysteria/releases/latest/download/hashes.txt" )
 
-function check_and_update_hysteria(){
+function check_and_update_hysteria {
 
 	new_sha256sum=$( echo "$hysteria_sha256" | grep "$file_name$" | awk '{print $1}' )
 
@@ -58,7 +58,7 @@ check_and_update_hysteria
 tag_ver=$( curl -s https://api.github.com/repos/hacdias/webdav/releases/latest | grep '"tag_name"' | cut -d '"' -f 4 | cut -c2- )
 webdav_sha256=$( curl --silent -L "https://github.com/hacdias/webdav/releases/latest/download/webdav_${tag_ver}_checksums.txt" )
 
-function check_and_update_webdav(){
+function check_and_update_webdav {
 	new_sha256sum=$( echo "$webdav_sha256" | grep "${file_name}.tar.gz$" | awk '{print $1}' )
 
 	wget "https://github.com/hacdias/webdav/releases/latest/download/${file_name}.tar.gz" -O "/tmp/tool_update/${file_name}.tar.gz"
