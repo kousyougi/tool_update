@@ -15,7 +15,7 @@ jobs:
       - name: Organize files
         run: |
           mkdir upload
-          sh tool_update.sh
+          bash tool_update.sh
 
       - name: Upload firmware to release
         uses: softprops/action-gh-release@v1
